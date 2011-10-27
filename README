@@ -1,0 +1,10 @@
+Example testing snippet-scope
+
+fire up like this:
+
+mvn tomcat:run
+
+Point browser to http://localhost:8080/snippetscopetest/
+
+
+This file was modified by IntelliJ IDEA (Nika) IU-110.187 for binding GitHub repository
