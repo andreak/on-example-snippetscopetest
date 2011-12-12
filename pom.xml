@@ -7,7 +7,7 @@
 	<version>1.0.0-SNAPSHOT</version>
 
 	<properties>
-		<version.lift>2.4-M4</version.lift>
+		<version.lift>2.4-SNAPSHOT</version.lift>
 		<version.maven-scala-plugin>2.15.2</version.maven-scala-plugin>
 		<version.scala>2.9.1</version.scala>
 	</properties>
@@ -26,11 +26,6 @@
 			<dependency>
 				<groupId>net.liftweb</groupId>
 				<artifactId>lift-webkit_${version.scala}</artifactId>
-				<version>${version.lift}</version>
-			</dependency>
-			<dependency>
-				<groupId>net.liftweb</groupId>
-				<artifactId>lift-textile_${version.scala}</artifactId>
 				<version>${version.lift}</version>
 			</dependency>
 			<dependency>
@@ -58,10 +53,6 @@
 		<dependency>
 			<groupId>net.liftweb</groupId>
 			<artifactId>lift-webkit_${version.scala}</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>net.liftweb</groupId>
-			<artifactId>lift-textile_${version.scala}</artifactId>
 		</dependency>
 
 		<!-- Test dependencies -->
