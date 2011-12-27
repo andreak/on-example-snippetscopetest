@@ -26,7 +26,10 @@ class DialogSnippet extends TransientSnippet {
 		".updateList" #> SHtml.ajaxButton("Update listItem " + listItemNum, () => {
 			println("Updating background listItem: " + listItemNum + " by calling callbackFunc")
 			callbackFunc()
-		})
+		}) &
+		".identityHashCode" #> fluff
 	}
+
+	def fluff = Text("this: " + System.identityHashCode(this))
 
 }
