@@ -15,6 +15,7 @@ object callbackFuncVar extends RequestVar[() => JsCmd](() => Noop)
 
 class ListSnippet {
 
+	val transientDialogTemplate = "templates-hidden/transientDialog"
 	val dialogTemplate = "templates-hidden/dialog"
 
 	private def getCallbackFunc(idMem:  IdMemoizeTransform) = {
@@ -26,13 +27,20 @@ class ListSnippet {
 									".numberInList *" #> ("Number: " + v) &
 									".lastCell" #> SHtml.idMemoize(idMem => {
 										".timestamp *" #> new DateTime().toString("dd.MM.yyy HH:mm:ss") &
-										".link *" #> SHtml.a(() => {
+										".transientDialogLink *" #> SHtml.a(() => {
+											listItemNumber.set(v)
+											callbackFuncVar.set(getCallbackFunc(idMem))
+											S.runTemplate(List(transientDialogTemplate)).
+												map(ns => JQueryDialog(ns, "I'm hipp!").open).
+												openOr(Alert("Template not found: " + transientDialogTemplate))
+										}, Text("Click for transient-popup")) &
+										".dialogLink *" #> SHtml.a(() => {
 											listItemNumber.set(v)
 											callbackFuncVar.set(getCallbackFunc(idMem))
 											S.runTemplate(List(dialogTemplate)).
 												map(ns => JQueryDialog(ns, "I'm hipp!").open).
 												openOr(Alert("Template not found: " + dialogTemplate))
-										}, Text("Click for popup"))
+										}, Text("Click for popup (should re-use snippet-instance after #980 is fixed"))
 									})
 		)
 	}
