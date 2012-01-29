@@ -7,20 +7,20 @@ import util.Helpers._
 import java.util.Date
 import xml.Text
 
-class DialogSnippet extends TransientSnippet {
+class TransientDialogSnippet extends TransientSnippet {
 
 	val callbackFunc = callbackFuncVar.get
 	val listItemNum = listItemNumber.get
 
-	println("** Constructing new DialogSnippet for listItem: " + listItemNum + " " + this)
+	println("** Constructing new " + getClass.getSimpleName + " for listItem: " + listItemNum + " " + this)
 
 	val timeId = nextFuncName
 	def render = {
-		println("* DialogSnippet.render for listItem: " + listItemNum + " " + this)
+		println("* " + getClass.getSimpleName + ".render for listItem: " + listItemNum + " " + this)
 		".itemNum *" #> listItemNum &
 		".time [id]" #> timeId &
 		".updateTime" #> SHtml.ajaxButton("Update time " + listItemNum, () => {
-			println("* DialogSnippet: Updating time for : " + listItemNum + " " + this)
+			println("* " + getClass.getSimpleName + ": Updating time for : " + listItemNum + " " + this)
 			SetHtml(timeId, Text(new Date().toString))
 		}) &
 		".updateList" #> SHtml.ajaxButton("Update listItem " + listItemNum, () => {
