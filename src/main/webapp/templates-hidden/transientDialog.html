@@ -1,12 +1,16 @@
 <div class="lift:TransientDialogSnippet">
-	identityHashCode(calling TransientDialogSnippet.fluff): <div class="lift:TransientDialogSnippet.fluff">identityHashCode</div><br/>
-	identityHashCode(binding to css-class "identityHashCode"): <div class="identityHashCode">identityHashCode</div><br/>
 	Click the button to update the timestamp (and render new link) for list-item number <span class="itemNum">1</span>
-
 	<span class="time" style="border: 1px solid red">Click to update time</span>
 	<p/>
 	<button class="updateTime">Update Time</button>
 	<button class="updateList">Update list</button>
 	<p/>
 	After updating, the link will take you to the same snippet-instance for this popup
+
+    form:
+    <div class="lift:form?type=ajax">
+        Click for testing request-var scope
+        <button class="editBlogEntry">Edit</button>
+
+    </div>
 </div>

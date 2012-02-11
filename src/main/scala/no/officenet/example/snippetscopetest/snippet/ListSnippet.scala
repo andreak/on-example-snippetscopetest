@@ -31,7 +31,7 @@ class ListSnippet {
 											listItemNumber.set(v)
 											callbackFuncVar.set(getCallbackFunc(idMem))
 											S.runTemplate(List(transientDialogTemplate)).
-												map(ns => JQueryDialog(ns, "I'm hipp!").open).
+												map(ns => JQueryDialog(ns, "Dialog inited from snippet").open).
 												openOr(Alert("Template not found: " + transientDialogTemplate))
 										}, Text("Click for transient-popup")) &
 										".dialogLink *" #> SHtml.a(() => {

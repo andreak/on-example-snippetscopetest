@@ -38,7 +38,7 @@ class JQueryDialog(in: NodeSeq, title: NodeSeq) {
 
 	protected def options = JsObj(
 		"title" -> title.toString(),
-		"width" -> 200,
+		"width" -> 600,
 		"height" -> 250,
 		"resizable" -> true,
 		"show" -> "drop", // choose effect here
